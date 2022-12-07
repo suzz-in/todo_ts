@@ -7,7 +7,6 @@ export type TodoProps = {
     todo: Todo
 }
 
-
 const TodoItem = ({todo} : TodoProps) => {
 
     const dispatch = useTodosDispatch();
