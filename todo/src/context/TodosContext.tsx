@@ -15,9 +15,14 @@ export const TodoStateContext = createContext<TodosState | null>(null);
 type Action = 
 {type: "CREATE"; text: string} | {type: "EDIT"; id: number} | {type: "REMOVE"; id:number}
 
+//디스패치 타입명시
 type TodoDispatch = Dispatch<Action>;
+
+//디스패치 context 생성
 export const TodoDispatchContext = createContext<TodoDispatch | null>(null);
 
+
+//리듀서
 function todosReducer(state: TodosState, action: Action): TodosState{
     switch(action.type){
         case "CREATE":
@@ -51,14 +56,3 @@ export function TodosContextProvider({children}:{children:React.ReactNode}) {
     )
 }
 
-// export function useTodosState(){
-//     const state = useContext(TodoStateContext);
-//     if(!state) throw new Error("에러")
-//     return state;
-// }
-
-// export function useTodosDispatch(){
-//     const dispatch = useContext(TodoDispatchContext);
-//     if(!dispatch) throw new Error("에러")
-//     return dispatch;
-// }
