@@ -24,7 +24,13 @@ const TodoItem = ({todo} : TodoProps) => {
         })
     }
 
-    return <></>
+    return (
+        <div>
+            <span>{todo.id}</span>
+            <p>{todo.text}</p>
+            
+        </div>
+    )
 }
 
 export default TodoItem;

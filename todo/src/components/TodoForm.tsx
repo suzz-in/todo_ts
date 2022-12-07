@@ -15,7 +15,7 @@ const TodoForm = () => {
         setInput("");
 
     }
-    return (<Form>
+    return (<Form onSubmit={onSubmit}>
         <Input value={input} onChange={e => setInput(e.target.value)}/>
         <Button>등록</Button>
     </Form>)
