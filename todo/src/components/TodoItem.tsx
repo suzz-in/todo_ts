@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { Todo, useTodosDispatch } from "../context/TodosContext";
 
 
@@ -25,12 +26,35 @@ const TodoItem = ({todo} : TodoProps) => {
     }
 
     return (
-        <div>
+        <Container>
+            <input type='checkbox' checked={todo.done} onChange={onCheck}/>
             <span>{todo.id}</span>
             <p>{todo.text}</p>
-            
-        </div>
+            <button onClick={remove}>삭제</button>
+        </Container>
     )
 }
 
 export default TodoItem;
+
+const Container = styled.div`
+display: grid;
+justify-content: center;
+align-items: center;
+grid-template-columns: 0.3fr 0.5fr 2fr 0.5fr;
+background-color: lightBlue;
+border-radius: 10px;
+width: 70vw;
+
+
+ span {
+    margin: 10px;
+    color: grey;
+ }
+
+ button {
+    width: 8vw;
+    font-size: 0.7rem;
+ }
+
+`
