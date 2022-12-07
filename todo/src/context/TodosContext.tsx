@@ -8,15 +8,15 @@ export type Todo = {
 //투두 하나는 {}, 배열로 모으기
 type TodosState = Todo[];
 
-//context 생성
-const TodoStateContext = createContext<TodosState | null>(null);
+//state context 생성
+export const TodoStateContext = createContext<TodosState | null>(null);
 
 //useReducer에 사용할 action 타입 명시
 type Action = 
 {type: "CREATE"; text: string} | {type: "EDIT"; id: number} | {type: "REMOVE"; id:number}
 
 type TodoDispatch = Dispatch<Action>;
-const TodoDispatchContext = createContext<TodoDispatch | null>(null);
+export const TodoDispatchContext = createContext<TodoDispatch | null>(null);
 
 function todosReducer(state: TodosState, action: Action): TodosState{
     switch(action.type){
@@ -51,14 +51,14 @@ export function TodosContextProvider({children}:{children:React.ReactNode}) {
     )
 }
 
-export function useTodosState(){
-    const state = useContext(TodoStateContext);
-    if(!state) throw new Error("에러")
-    return state;
-}
+// export function useTodosState(){
+//     const state = useContext(TodoStateContext);
+//     if(!state) throw new Error("에러")
+//     return state;
+// }
 
-export function useTodosDispatch(){
-    const dispatch = useContext(TodoDispatchContext);
-    if(!dispatch) throw new Error("에러")
-    return dispatch;
-}
+// export function useTodosDispatch(){
+//     const dispatch = useContext(TodoDispatchContext);
+//     if(!dispatch) throw new Error("에러")
+//     return dispatch;
+// }
