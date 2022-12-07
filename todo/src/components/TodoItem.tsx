@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Todo, useTodosDispatch } from "../context/TodosContext";
+import { Todo } from "../context/TodosContext";
+import { useTodosDispatch } from "../hooks/useTodosDispatch";
 
 
 export type TodoProps = {

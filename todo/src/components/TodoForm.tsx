@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useTodosDispatch } from "../context/TodosContext";
+import { useTodosDispatch } from "../hooks/useTodosDispatch";
+
 
 const TodoForm = () => {
     const [input, setInput] = useState<string>("");
